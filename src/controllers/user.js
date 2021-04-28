@@ -75,6 +75,10 @@ const login = (req, res) => {
 }
 
 
+const getUser = (req, res) => {
+    res.json(req.user);
+}
+
 //--------------------logout  user controller--------------------//
 const logout = (req, res) => {
     req.user.tokens = req.user.tokens.filter(token => token.tokens != req.token);
@@ -91,5 +95,6 @@ const logout = (req, res) => {
 module.exports = {
     signup,
     login,
+    getUser,
     logout
 };

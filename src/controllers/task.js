@@ -17,7 +17,7 @@ const createTask = (req, res) => {
 //--------------------update task--------------------//
 const updateTask = (req, res) => {
     const id = req.params.id;
-    if (req.body.description || req.body.completed) {
+    if (1) {
         Task.findByIdAndUpdate({ _id: id }, req.body, { new: true })
             .then((result) => {
                 res.json(result);
