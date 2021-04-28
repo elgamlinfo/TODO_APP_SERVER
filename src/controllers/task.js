@@ -34,7 +34,14 @@ const updateTask = (req, res) => {
 //--------------------get All task--------------------//
 const getAllTasks = (req, res) => {
     req.user
-        .populate({ path: "tasks" })
+        .populate({ 
+            path: "tasks",
+            options: {
+                sort: {
+                    completed: 1
+                }
+            }
+         })
         .execPopulate()
         .then((user) => {
             if(user.tasks.length <= 0){
